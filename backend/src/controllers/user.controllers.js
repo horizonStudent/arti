@@ -1,3 +1,5 @@
+import db from "../model/dbConn.js"
+
 /**
  * 
  * @param {*} req 
@@ -17,9 +19,10 @@ const login = (req, res) =>{
  * @param {*} res 
  */
 
-const register = (req, res) =>{
+const register = async (req, res) =>{
     try {
-        res.status(200).send("register page")
+        let saveDataIndb = await db.users.create(req.body)
+        res.status(201).send(saveDataIndb)
     } catch (error) {
         res.status(500).send(error)
     }
