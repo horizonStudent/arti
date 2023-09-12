@@ -6,10 +6,6 @@ const usersModel = (sequelize,DataTypes) =>{
           type: DataTypes.STRING,
           allowNull: false
         },
-        lastName: {
-          type: DataTypes.STRING
-          // allowNull defaults to true
-        },
         phone: {
             type: DataTypes.INTEGER
             // allowNull defaults to true

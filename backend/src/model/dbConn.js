@@ -1,6 +1,6 @@
 import { Sequelize  , DataTypes } from "sequelize";
 import usersModel from "./users.model.js";
-
+import product from "./product.model.js";
 
 // Option 3: Passing parameters separately (other dialects)
 const sequelize = new Sequelize('student', 'root', '123456', {
@@ -11,6 +11,7 @@ const sequelize = new Sequelize('student', 'root', '123456', {
 let db = {};
 db.sequelize = sequelize
 db.users = usersModel(sequelize,DataTypes);
+db.product =product(sequelize,DataTypes);
 
 (async ()=>{
     try {
@@ -20,7 +21,6 @@ db.users = usersModel(sequelize,DataTypes);
         console.error('Unable to connect to the database:', error);
     }
 })()
-
-// db.sequelize.sync({force: true})
+// db.product.sync({focus: true})
 
 export default db;
